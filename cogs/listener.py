@@ -4,7 +4,7 @@ from discord.ext import commands
 from events.ready import ready
 from events.message import msg
 
-class Test(commands.Cog):
+class Listeners(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
