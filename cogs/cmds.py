@@ -7,7 +7,7 @@ class Cmds(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @commands.command()
+    @commands.hybrid_command()
     async def ping(self, ctx: commands.Context):
         await cmd_ping(ctx)
 
