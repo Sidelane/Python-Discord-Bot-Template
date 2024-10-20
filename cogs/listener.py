@@ -17,4 +17,4 @@ class Listeners(commands.Cog):
         msg(self.bot, message)
 
 async def setup(bot):
-    await bot.add_cog(Test(bot))
+    await bot.add_cog(Listeners(bot))
