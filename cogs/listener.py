@@ -1,10 +1,10 @@
 import discord
 from discord.ext import commands
-from events.message import msg
+
 from events.ready import ready
+from events.message import msg
 
 class Test(commands.Cog):
-
     def __init__(self, bot):
         self.bot = bot
 
@@ -16,5 +16,5 @@ class Test(commands.Cog):
     async def on_message(self, message: discord.message):
         msg(self.bot, message)
 
-def setup(bot):
-    bot.add_cog(Test(bot))
+async def setup(bot):
+    await bot.add_cog(Test(bot))

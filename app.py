@@ -1,14 +1,24 @@
+import asyncio
+
 from os import listdir
-from bot import AzubiBot
+
+from bot import DiscordBot
 from config import TOKEN
 
-Bot = AzubiBot(TOKEN)
 
-for filename in listdir('./cogs'):
-    if filename.endswith('.py'):
-        Bot.load_extension(f'cogs.{filename[:-3]}')
+Bot = DiscordBot(TOKEN)
 
-try:
+
+async def load_extensions():
+    for filename in listdir('./cogs'):
+        if filename.endswith('.py'):
+            await Bot.load_extension(f'cogs.{filename[:-3]}')
+
+
+def main():
+    asyncio.run(load_extensions())
     Bot.startup()
-except Exception:
-    print("Exception while starting the Bot")
+
+
+if __name__ == '__main__':
+    main()

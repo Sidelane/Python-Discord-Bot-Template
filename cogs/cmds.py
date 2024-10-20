@@ -1,14 +1,15 @@
-import discord
 from discord.ext import commands
 
-class Cmds(commands.Cog):
+from commands.cmd_ping import cmd_ping
 
+
+class Cmds(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
     @commands.command()
     async def ping(self, ctx):
-        await ctx.send("Pong!")
+        await cmd_ping(ctx)
 
-def setup(bot):
-    bot.add_cog(Cmds(bot))
+async def setup(bot):
+    await bot.add_cog(Cmds(bot))
