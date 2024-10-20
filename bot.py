@@ -8,7 +8,7 @@ class DiscordBot(commands.Bot):
     def __init__(self, token: str):
         intents = discord.Intents.default() if INTENTS == "default" else discord.Intents.all()
         super().__init__(command_prefix=COMMAND_PREFIX, intents=intents)
-        self._token = token
+        self._token: str = token
 
     def startup(self):
         super().run(self._token, reconnect=True)
